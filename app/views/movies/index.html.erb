@@ -4,9 +4,7 @@
 
 <hr>
 
-<div>
-  <a href="<%= new_movie_path %>">Add a new movie</a>
-</div>
+<%= link_to "Add a new movie", new_movie_path %>
 
 <hr>
 
@@ -36,32 +34,30 @@
     </th>
   </tr>
 
-  <% @list_of_movies.each do |a_movie| %>
-  <tr>
-    <td>
-      <%= a_movie.id %>
-    </td>
+  <% @movies.each do |a_movie| %>
+    <tr>
+      <td>
+        <%= a_movie.id %>
+      </td>
 
-    <td>
-      <%= a_movie.title %>
-    </td>
+      <td>
+        <%= a_movie.title %>
+      </td>
 
-    <td>
-      <%= a_movie.description %>
-    </td>
+      <td>
+        <%= a_movie.description %>
+      </td>
 
-    <td>
-      <%= time_ago_in_words(a_movie.created_at) %> ago
-    </td>
-    <td>
-      <%= time_ago_in_words(a_movie.updated_at) %> ago
-    </td>
+      <td>
+        <%= time_ago_in_words(a_movie.created_at) %> ago
+      </td>
+      <td>
+        <%= time_ago_in_words(a_movie.updated_at) %> ago
+      </td>
 
-    <td>
-      <a href="<%= movie_path(a_movie.id)%>">
-        Show details
-      </a>
-    </td>
-  </tr>
+      <td>
+        <%= link_to "Show details", a_movie %>
+      </td>
+    </tr>
   <% end %>
 </table>
